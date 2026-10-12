@@ -1,21 +1,21 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
-import stylexPlugin from 'unplugin-stylex/rspack';
+import stylex from '@stylexjs/unplugin';
 
 export default defineConfig({
   plugins: [pluginReact()],
-  html: {
-    template: './public/index.html',
-  },
   tools: {
     rspack: {
       plugins: [
-        stylexPlugin({
-          stylex: {
-            // Prefer extracted CSS over runtime injection so production builds
-            // load styles via the `/stylex.css` link in `public/index.html`.
-            runtimeInjection: false,
-          },
+        // Official StyleX plugin: compiles StyleX and appends CSS into the
+        // stylesheet emitted by CssExtractRspackPlugin (used by Rsbuild).
+        // See https://stylexjs.com/docs/learn/installation/rspack/
+        //
+        // Prefer the webpack adapter here: @stylexjs/unplugin currently attaches
+        // CSS injection via the webpack() hook, which Rspack still invokes for
+        // webpack-compatible plugins. The rspack() entry only runs transform.
+        stylex.webpack({
+          useCSSLayers: true,
         }),
       ],
     },
