@@ -16,7 +16,7 @@ export default defineConfig({
         type: 'css',
       },
       {
-        test: /\.(?:js|mjs|cjs|ts|mts|cts)$/,
+        test: /\.(?:js|mjs|cjs|mts|cts)$/,
         exclude: [/[\\/]node_modules[\\/]/],
         use: [
           {
@@ -27,6 +27,24 @@ export default defineConfig({
                 externalHelpers: true,
               },
             },
+          },
+        ],
+      },
+      {
+        test: /\.ts$/,
+        exclude: [/[\\/]node_modules[\\/]/],
+        use: [
+          {
+            loader: 'builtin:swc-loader',
+            options: {
+              detectSyntax: 'auto',
+              jsc: {
+                externalHelpers: true,
+              },
+            },
+          },
+          {
+            loader: 'babel-loader',
           },
         ],
       },
