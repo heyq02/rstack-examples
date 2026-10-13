@@ -1,5 +1,5 @@
 {
-  "name": "@rspack-example/react-compiler-babel-ts",
+  "name": "@rspack-example/react-compiler-ts",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
@@ -15,16 +15,20 @@
     "react-refresh": "0.19.0"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-jsx": "^7.29.7",
-    "@babel/plugin-syntax-typescript": "^7.29.7",
     "@rspack/cli": "2.2.8",
     "@rspack/core": "2.2.8",
     "@rspack/dev-server": "2.2.1",
+<<<<<<< HEAD:rspack/react-compiler-babel-ts/package.json
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "babel-loader": "^10.1.1",
     "babel-plugin-react-compiler": "^1.0.0",
+=======
+    "@types/node": "^24.12.4",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+>>>>>>> 418e1fd4 (refactor(rspack): switch React Compiler examples to builtin:swc-loader):rspack/react-compiler-ts/package.json
     "typescript": "^5.9.3"
   }
 }
